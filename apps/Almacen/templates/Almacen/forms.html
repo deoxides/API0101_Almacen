@@ -1,0 +1,30 @@
+{% extends 'Almacen/complements/base.html' %}
+{% load static %}
+{% block body %}
+<div class="container">
+    <div class="jumbotron">
+        <form action="{% url action_url %}" method="post">
+            <fieldset>
+                <legend>{{form_name}}</legend>
+                {% csrf_token %}
+                <div id="form" class="form-group">
+                    {{ form }}
+                </div>
+                <input type="submit" value="Submit">
+                <div class="messages">
+                    <ul class="errors">
+                        {% for e in errors %}
+                        <li class="error">
+                            <strong>{{ e }}</strong>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{% static 'Almacen/js/forms.js' %}"></script>
+{% endblock %}
