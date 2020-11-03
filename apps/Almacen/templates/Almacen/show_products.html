@@ -1,6 +1,6 @@
 {% extends 'Almacen/complements/base.html' %}
 {% block body %}
-{% if objects is not None %}
+{% if objects.count > 0 %}
     {% for o in objects %}
     <div class="card mb-3">
         <h3 class="card-header">{{o.id_producto}}</h3>
@@ -23,5 +23,12 @@
         </div>
       </div>
     {% endfor %}
+{% else %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Ups!</strong> No hay productos para mostrar en este momento.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 {% endif %}
 {% endblock %}

@@ -18,14 +18,32 @@
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'products' %}">Productos</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="" id="productsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Productos
+              </a>
+              <div class="dropdown-menu" aria-labelledby="productsDropdown">
+                <a class="dropdown-item" href="{% url 'products' %}">Mostrar productos</a>
+                <a class="dropdown-item" href="{% url 'addproduct' %}">Agregar productos</a>
+                <a class="dropdown-item" href="#">Modificar productos</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item alert alert-danger" href="#">Eliminar productos</a>
+              </div>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Clientes</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Proveedores</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="" id="proDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Proveedores
+              </a>
+              <div class="dropdown-menu" aria-labelledby="productsDropdown">
+                <a class="dropdown-item" href="#">Mostrar proveedores</a>
+                <a class="dropdown-item" href="{% url 'addproveedor' %}">Agregar un proveedor</a>
+                <a class="dropdown-item" href="#">Modificar proveedor</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item alert alert-danger" href="#">Eliminar proveedor</a>
+              </div>
             </li>
           </ul>
         </div>

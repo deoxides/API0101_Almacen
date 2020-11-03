@@ -77,11 +77,11 @@ def addPoveedor(request):
             msg.append(form.errors)
             return render(request,'',{'form':form,'errors': msg})
     else:
-        form = ProveedorAdmin()
+        form = ProveedorAdmin
         action_url = 'addproveedor'
         form_name = 'Agregar un proveedor'
         context = {'form':form,'action_url':action_url,'form_name':form_name}
-    return render(request, 'Almacen/forms.html', context)
+    return render(request,'Almacen/forms.html',context)
 
 
 #Error handling

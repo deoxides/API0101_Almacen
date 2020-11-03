@@ -1,6 +1,6 @@
 from django import forms 
 from django.contrib import admin
-from .models import Producto, TiposProducto, Proveedor
+from .models import Producto, TiposProducto, Proveedor, Rubros
 
 class ProductoAdmin(forms.ModelForm):
     class Meta:
@@ -25,19 +25,18 @@ class ProductoAdmin(forms.ModelForm):
         }
 
 class ProveedorAdmin(forms.ModelForm):
-
     class Meta:
         model = Proveedor
         exclude =['direccion']
         widgets = {
-            'rut':forms.TextInput(attrs={'id':'rut','class':'form-control'}),
+            'rut':forms.TextInput(attrs={'id':'rut','class':'form-control','value':''}),
             'nombre':forms.TextInput(attrs={'id':'nombre','class':'form-control'}),
             'apellido':forms.TextInput(attrs={'id':'apellido','class':'form-control'}),
             'telefono':forms.TextInput(attrs={'id':'telefono','class':'form-control'}),
-            'tipo':forms.TextInput(attrs={'id':'tipo','class':'form-control','readonly':'','value':'PROVEEDOR'}),
-            'rubro':forms.CheckboxInput(attrs={'id':'rubro','class':'form-check-input'})
+            'tipo':forms.TextInput(attrs={'id':'tipo','class':'form-control','readonly':''}),
+            'rubro':forms.CheckboxSelectMultiple(choices=TiposProducto)
         }
-
+        
 
 class LoginForm(forms.Form):
     username = forms.CharField(label='Nombre de usuario',widget=forms.TextInput(attrs={'id': 'username','class':'form-control','placeholder':'Ingrese su nombre de usuario'}))
